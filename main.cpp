@@ -4,6 +4,8 @@
 #include "Moves.cpp"
 #include "Display_Utils.h"
 #include "Display_Utils.cpp"
+#include "Pokemon.h"
+#include "Pokemon.cpp"
 
 using namespace std;
 
@@ -16,8 +18,14 @@ int main(){
     CharizardMoves.push_back(Moves{"Fire Spin", "Fire", 35, 85, 0, 15});
     CharizardMoves.push_back(Moves{"Slash", "Normal", 70, 100, 0, 20});
     CharizardMoves.push_back(Moves{"Rage", "Normal", 20, 100, 0, 20});
-
     display(CharizardMoves);
+
+
+    Pokemon Empty {};
+    display(Empty);
+
+    Pokemon Charizard {6, "Charizard", "Charizard", "Fire", "Flying", 78, 52, 84, 78, 109, 85, 100, 1000, CharizardMoves};
+    display(Charizard);
 
     return 0;
 }

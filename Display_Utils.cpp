@@ -8,9 +8,21 @@ void display(const Moves &move){
 }
 
 //displays move objects in a vector of move objects
-void display(std::vector<Moves> &moves){
+void display(const std::vector<Moves> &moves){
     std::cout << "\n ========Moves==========" << std::endl;
-    for(const auto &move:moves){
+    for(const Moves &move:moves){
         std::cout << move << std::endl;
+    }
+}
+
+void display(const Pokemon &pokemon){
+    std::cout << "\n ========Pokemon==========" << std::endl;
+    std::cout << pokemon << std::endl;
+}
+
+void display(const std::vector<Pokemon> &pokemons){
+    std::cout << "\n ========Pokemon==========" << std::endl;
+    for(const Pokemon &pokemon:pokemons){
+        std::cout << pokemon << std::endl;
     }
 }
