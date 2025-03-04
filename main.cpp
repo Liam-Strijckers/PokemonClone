@@ -23,9 +23,15 @@ int main(){
 
     Pokemon Empty {};
     display(Empty);
+    display(Empty.get_moves());
+    Empty.learnMove("Flamethrower", "Fire", 90, 100, 0, 15);
+    display(Empty.get_moves());
 
     Pokemon Charizard {6, "Charizard", "Charizard", "Fire", "Flying", 78, 52, 84, 78, 109, 85, 100, 1000, CharizardMoves};
     display(Charizard);
+    display(Charizard.get_moves());
+    cout << Charizard.learnMove("Flamethrower", "Fire", 90, 100, 0, 15);
+    display(Charizard.get_moves());
 
     return 0;
 }

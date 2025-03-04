@@ -25,7 +25,7 @@ private:
     std::vector<Moves> moves;
 public:
     Pokemon(int IDNumber = 0, std::string name = "EmptyPokemon", std::string nickname = "EmptyPokemon", std::string primaryType = "EmptyType", std::string secondaryType = "EmptyType", int HP = 0, int level = 0,
-        int attack = 0, int defense = 0, int spAttack = 0, int spDefense = 0, int speed = 0, int ExpNextLevel = 0, std::vector<Moves> moves= {}); //default
+        int attack = 0, int defense = 0, int spAttack = 0, int spDefense = 0, int speed = 0, int ExpNextLevel = 0, std::vector<Moves> moves = {Moves{}, Moves{},Moves{}, Moves{}}); //default
     
     std::string get_name() const;
     std::string get_nickname() const;
@@ -41,6 +41,7 @@ public:
     int get_speed() const;
     int get_ExpNextLevel() const;
     int get_currentExp() const;
+    std::vector<Moves> get_moves() const;//return by reference?
 
     void set_name(std::string name);
     void set_nickname(std::string nickname);
@@ -56,6 +57,8 @@ public:
     void set_speed(int speed);
     void set_ExpNextLevel(int ExpNextLevel);
     void set_currentExp(int currentExp);
+
+    bool learnMove(std::string name, std::string type, int power, int accuracy, int critcalChance, int totalPP);
 };
 
 

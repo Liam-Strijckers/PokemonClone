@@ -1,10 +1,14 @@
+#include <algorithm>
+#include <vector>
 #include "Pokemon.h"
+
+using namespace std;
 
 
 Pokemon::Pokemon(int IDNumber, std::string name, std::string nickname, std::string primaryType, std::string secondaryType, int HP, int level,
     int attack, int defense, int spAttack, int spDefense, int speed, int ExpNextLevel, std::vector<Moves> moves)
     : IDNumber{IDNumber}, name{name}, nickname{nickname}, primaryType{primaryType}, secondaryType{secondaryType}, HP{HP}, level{level}, attack{attack},
-        defense{defense}, spAttack{spAttack}, spDefense{spDefense}, speed{speed}, ExpNextLevel{ExpNextLevel}, moves() {
+        defense{defense}, spAttack{spAttack}, spDefense{spDefense}, speed{speed}, ExpNextLevel{ExpNextLevel}, moves{moves} {
             currentExp = 0;
         }
 
@@ -50,6 +54,9 @@ int Pokemon::get_ExpNextLevel() const{
 int Pokemon::get_currentExp() const{
     return currentExp;
 }
+std::vector<Moves> Pokemon::get_moves() const{
+    return moves;
+}
 
 void Pokemon::set_name(std::string name){
     this->name = name;
@@ -92,6 +99,22 @@ void Pokemon::set_ExpNextLevel(int ExpNextLevel){
 }
 void Pokemon::set_currentExp(int currentExp){
     this->currentExp = currentExp;
+}
+
+bool Pokemon::learnMove(std::string name, std::string type, int power, int accuracy, int critcalChance, int totalPP){
+    int i {0}; //not a fan, talk to zach about have a built in way to replace only the first instance of "EmptyMove"
+    for(const Moves &move:moves){
+        if(move.get_name() == "EmptyMove"){
+            moves.at(i) = Moves{name, type, power, accuracy, critcalChance, totalPP};
+            return true;
+        }
+        if(name == move.get_name()){
+            return false;
+        }
+        i++;
+    }
+    moves.push_back(Moves{name, type, power, accuracy, critcalChance, totalPP});
+    return true;
 }
 
 std::ostream &operator<<(std::ostream &os, const Pokemon &pokemon){
