@@ -1,6 +1,8 @@
 #ifndef _DISPLAY_UTILS_H_
 #define _DISPLAY_UTILS_H_
+
 #include <vector>
+
 #include "Moves.h"
 #include "Pokemon.h"
 
