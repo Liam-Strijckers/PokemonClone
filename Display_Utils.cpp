@@ -8,7 +8,7 @@ void display(const Moves &move){
 }
 
 //displays move objects in a vector of move objects
-void display(const std::vector<Moves> &moves){
+void display(const std::array<Moves, NUM_MOVES> &moves){
     std::cout << "\n ========Moves==========" << std::endl;
     for(const Moves &move:moves){
         std::cout << move << std::endl;

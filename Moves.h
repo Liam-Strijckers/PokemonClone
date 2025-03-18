@@ -1,39 +1,33 @@
 #ifndef _MOVE_H_
 #define _MOVE_H_
+
 #include <iostream>
 #include <string>
 
-class Moves{
-    friend std::ostream &operator<<(std::ostream &os, const Moves &move);
-private:
-    std::string name;
-    std::string type;
-    int power;
-    int accuracy;
-    int critcalChance;
-    int currentPP;
-    int totalPP;
+static constexpr int NUM_MOVES{4};
+
+struct MovesData{
+    std::string name{};
+    std::string type{};
+    int power{};
+    int accuracy{};
+    int critcalChance{};
+    int totalPP{};
+};
+class Moves {
+
 public:
-    Moves(std::string name = "EmptyMove", std::string type = "Not a Type", int power = 0, int accuracy = 0, int critcalChance = 0, int totalPP = 0); //default
+    Moves() = default;
+    Moves(const MovesData &moves_data)
+        : data{moves_data}, m_currentPP{moves_data.totalPP} {};
+    int GetCurrentPP() const;
+    void DecrementCurrentPP();
 
-    std::string get_name() const;
-    std::string get_type() const;
-    int get_power() const;
-    int get_accuracy() const;
-    int get_critcalChance() const;
-    int get_currentPP() const;
-    int get_totalPP() const;
+    const MovesData data;
 
-    void set_name(std::string name);
-    void set_type(std::string type);
-    void set_power(int power);
-    void set_accuracy(int accuracy);
-    void set_critcalChance(int critcalChance);
-    void set_currentPP(int currentPP);
-    void set_totalPP(int totalPP);
-
-    void decrementCurrentPP();
-
-
+private:
+    friend std::ostream &operator<<(std::ostream &os, const Moves &move);
+    
+    int m_currentPP{};
 };
 #endif
