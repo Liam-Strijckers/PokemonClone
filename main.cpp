@@ -1,11 +1,8 @@
 #include <iostream>
 #include <vector>
 #include "Moves.h"
-#include "Moves.cpp"
 #include "Display_Utils.h"
-#include "Display_Utils.cpp"
 #include "Pokemon.h"
-#include "Pokemon.cpp"
 
 using namespace std;
 

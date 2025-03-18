@@ -7,7 +7,7 @@
 #include "Pokemon.h"
 
 void display(const Moves &move);
-void display(const std::vector<Moves> &moves);
+void display(const std::array<Moves, NUM_MOVES> &moves);
 
 void display(const Pokemon &pokemon);
 void display(const std::vector<Pokemon> &pokemons);

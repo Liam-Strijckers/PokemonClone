@@ -25,7 +25,7 @@ public:
   int GetCurrentPP() const;
   void DecrementCurrentPP();
 
-  const MovesData data;
+  MovesData data;
 
 private:
   friend std::ostream &operator<<(std::ostream &os, const Moves &move);

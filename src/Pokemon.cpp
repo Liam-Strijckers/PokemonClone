@@ -20,18 +20,19 @@ bool Pokemon::LearnMove(const MovesData &moves_data) {
   return false;
 }
 
-std::ostream &operator<<(std::ostream &os, const Pokemon &pokemon) {
-  os << "Pokemon: " << pokemon.name << "\t\nNickname: " << pokemon.nickname
-     << "\t\nID: " << pokemon.IDNumber
-     << "\t\nPrimary Type: " << pokemon.primaryType
-     << "\t\nSecondary Type: " << pokemon.secondaryType
-     << "\t\nLevel: " << pokemon.level << "\t\nHP: " << pokemon.HP
-     << "\t\nAttack: " << pokemon.attack << "\t\nDefense: " << pokemon.defense
-     << "\t\nSpecial Attack: " << pokemon.spAttack
-     << "\t\nSpecial Defense: " << pokemon.spDefense
-     << "\t\nSpeed: " << pokemon.speed
-     << "\t\nCurrent Experience: " << pokemon.currentExp
-     << "\t\nExperience until Next Level: "
-     << pokemon.ExpNextLevel - pokemon.currentExp;
+std::ostream &operator<<(std::ostream &os, const Pokemon &pokemon){
+  os  << "Pokemon: " << pokemon.data.name 
+      << "\t\nNickname: " << pokemon.data.nickname 
+      << "\t\nID: " << pokemon.data.idNumber 
+      << "\t\nPrimary Type: " << pokemon.data.primaryType
+      << "\t\nSecondary Type: " << pokemon.data.secondaryType 
+      << "\t\nLevel: " << pokemon.data.level << "\t\nHP: " << pokemon.data.hp 
+      << "\t\nAttack: " << pokemon.data.attack 
+      << "\t\nDefense: " << pokemon.data.defense 
+      << "\t\nSpecial Attack: " << pokemon.data.spAttack 
+      << "\t\nSpecial Defense: " << pokemon.data.spDefense 
+      << "\t\nSpeed: " << pokemon.data.speed
+      << "\t\nCurrent Experience: " << pokemon.GetCurrentExp() 
+      << "\t\nExperience until Next Level: " << pokemon.data.expNextLevel - pokemon.GetCurrentExp();
   return os;
 }
