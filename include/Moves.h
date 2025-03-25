@@ -24,6 +24,7 @@ public:
 
   int GetCurrentPP() const;
   void DecrementCurrentPP();
+  bool operator==(const Moves &rhs) const;
 
   MovesData data;
 
