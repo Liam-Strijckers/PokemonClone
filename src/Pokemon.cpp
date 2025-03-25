@@ -1,10 +1,14 @@
 #include "Pokemon.h"
 
 int Pokemon::GetCurrentExp() const { return m_currentExp; }
+int Pokemon::GetCurrentHP() const {return m_currentHP;}
 const std::array<Moves, NUM_MOVES> &Pokemon::GetMoves() const {
   return m_moves;
 }
 void Pokemon::IncrementCurrentExp(int expGain) { m_currentExp += expGain; }
+int Attack(){
+  return 0;
+}
 
 bool Pokemon::LearnMove(const MovesData &moves_data) {
   for (int i = 0; i < NUM_MOVES; i++) {
@@ -26,7 +30,9 @@ std::ostream &operator<<(std::ostream &os, const Pokemon &pokemon){
       << "\t\nID: " << pokemon.data.idNumber 
       << "\t\nPrimary Type: " << pokemon.data.primaryType
       << "\t\nSecondary Type: " << pokemon.data.secondaryType 
-      << "\t\nLevel: " << pokemon.data.level << "\t\nHP: " << pokemon.data.hp 
+      << "\t\nLevel: " << pokemon.data.level 
+      << "\t\nHP: " << pokemon.data.hp 
+      << "\t\nCurrent HP: " << pokemon.GetCurrentHP()
       << "\t\nAttack: " << pokemon.data.attack 
       << "\t\nDefense: " << pokemon.data.defense 
       << "\t\nSpecial Attack: " << pokemon.data.spAttack 

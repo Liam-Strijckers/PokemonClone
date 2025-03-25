@@ -30,8 +30,10 @@ public:
 
   const std::array<Moves, NUM_MOVES> &GetMoves() const;
   int GetCurrentExp() const;
+  int GetCurrentHP() const;
   void IncrementCurrentExp(int expGain);
   bool LearnMove(const MovesData &moves_data);
+  int Attack();
 
   const PokemonData data{};
 
@@ -40,6 +42,7 @@ private:
 
   std::array<Moves, NUM_MOVES> m_moves{Moves{}, Moves{}, Moves{}, Moves{}};
   int m_currentExp{};
+  int m_currentHP{};
 };
 
 #endif
