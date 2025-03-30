@@ -11,6 +11,10 @@ bool Trainer::AddPokemon(const PokemonData &PokemonData){
 }
 
 bool Trainer::SwapPrimPokemon(int indexNewPrim){
+    if(m_party.at(indexNewPrim).GetFaintedStatus()){
+        return false;
+    }
     m_pointPrimPokemon = &m_party.at(indexNewPrim);
+    return true;
 }
 

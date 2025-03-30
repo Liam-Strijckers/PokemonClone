@@ -2,6 +2,7 @@
 
 int Pokemon::GetCurrentExp() const { return m_currentExp; }
 int Pokemon::GetCurrentHP() const {return m_currentHP;}
+bool Pokemon::GetFaintedStatus() const {return m_fainted;}
 const std::array<Moves, NUM_MOVES> &Pokemon::GetMoves() const {
   return m_moves;
 }

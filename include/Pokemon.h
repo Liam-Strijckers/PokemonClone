@@ -32,6 +32,7 @@ public:
   const std::array<Moves, NUM_MOVES> &GetMoves() const;
   int GetCurrentExp() const;
   int GetCurrentHP() const;
+  bool GetFaintedStatus() const;
   void IncrementCurrentExp(int expGain);
   void DecrementCurrentHP(int hpDecrement);
   bool LearnMove(const MovesData &moves_data);
