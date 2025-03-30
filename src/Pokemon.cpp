@@ -9,6 +9,14 @@ void Pokemon::IncrementCurrentExp(int expGain) { m_currentExp += expGain; }
 int Attack(){
   return 0;
 }
+void Pokemon::DecrementCurrentHP(int hpDecrement){ 
+  if(hpDecrement > m_currentHP){
+    m_currentHP = 0;
+    m_fainted = true;
+  }else{
+    m_currentHP -= hpDecrement;
+  }
+}
 
 bool Pokemon::LearnMove(const MovesData &moves_data) {
   for (int i = 0; i < NUM_MOVES; i++) {
@@ -20,6 +28,13 @@ bool Pokemon::LearnMove(const MovesData &moves_data) {
     if (moves_data.name == m_moves.at(i).data.name) {
       return false;
     }
+  }
+  return false;
+}
+
+bool Pokemon::operator==(const Pokemon &rhs) const{
+  if(data.name == rhs.data.name){
+    return true;
   }
   return false;
 }
