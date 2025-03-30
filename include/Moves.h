@@ -4,11 +4,13 @@
 #include <iostream>
 #include <string>
 
+#include "MoveInteraction.h"
+
 static constexpr int NUM_MOVES{4};
 
 struct MovesData {
   std::string name{};
-  std::string type{};
+  enum MoveType type{};
   int power{};
   int accuracy{};
   int critcalChance{};

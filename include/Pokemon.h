@@ -5,13 +5,14 @@
 #include <iostream>
 #include <string>
 
+#include "MoveInteraction.h"
 #include "Moves.h"
 
 struct PokemonData {
   std::string name{};
   std::string nickname{};
-  std::string primaryType{};
-  std::string secondaryType{};
+  enum MoveType primaryType{};
+  enum MoveType secondaryType{};
   int idNumber{};
   int hp{};
   int level{};
