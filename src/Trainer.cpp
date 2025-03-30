@@ -11,6 +11,6 @@ bool Trainer::AddPokemon(const PokemonData &PokemonData){
 }
 
 bool Trainer::SwapPrimPokemon(int indexNewPrim){
-    m_refPrimPokemon = m_party.at(indexNewPrim);
+    m_pointPrimPokemon = &m_party.at(indexNewPrim);
 }
 

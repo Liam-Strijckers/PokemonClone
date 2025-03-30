@@ -14,7 +14,7 @@ public:
     bool SwapPrimPokemon(int indexNewPrim);
 private:
     std::array<Pokemon,NUM_PARTY_POKEMON> m_party {};
-    Pokemon &m_refPrimPokemon = m_party.at(0);
+    Pokemon *m_pointPrimPokemon = &m_party.at(0);
 };
 
 
