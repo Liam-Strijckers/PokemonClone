@@ -14,7 +14,7 @@ bool Trainer::SwapPrimPokemon(int indexNewPrim){
     if(m_party.at(indexNewPrim).GetFaintedStatus()){
         return false;
     }
-    m_pointPrimPokemon = &m_party.at(indexNewPrim);
+    pointPrimPokemon = &m_party.at(indexNewPrim);
     return true;
 }
 

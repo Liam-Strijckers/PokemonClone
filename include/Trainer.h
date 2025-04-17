@@ -12,9 +12,10 @@ class Trainer{
 public:
     bool AddPokemon(const PokemonData &PokemonData);
     bool SwapPrimPokemon(int indexNewPrim);
+    Pokemon *pointPrimPokemon = &m_party.at(0);
 private:
     std::array<Pokemon,NUM_PARTY_POKEMON> m_party {};
-    Pokemon *m_pointPrimPokemon = &m_party.at(0);
+    
 };
 
 

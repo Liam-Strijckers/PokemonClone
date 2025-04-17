@@ -5,6 +5,7 @@
 
 #include "MoveInteraction.h"
 #include "Pokemon.h"
+#include "Trainer.h"
 
 
 class Battle{
@@ -13,5 +14,11 @@ public:
 private:
     int damageCalc(const Pokemon &attackingPokemon, int moveIndex, const Pokemon &defendingPokemon);
     double typeEffectivenssLookUp(const enum MoveType &attackingType, const enum MoveType &defendingType);
+    void swapAttackDefendPokemon();
+    void displayUserOptions();
+    Trainer UserTrainer;
+    Trainer CPUTrainer;
+    Pokemon *AttackingPokemon = UserTrainer.pointPrimPokemon;
+    Pokemon *DefendingPokemon = CPUTrainer.pointPrimPokemon
 };
 #endif

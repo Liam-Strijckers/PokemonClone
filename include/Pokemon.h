@@ -43,10 +43,12 @@ public:
 
   bool operator==(const Pokemon &rhs) const;
 
+  std::array<Moves, NUM_MOVES> moves{Moves{}, Moves{}, Moves{}, Moves{}};
+
 private:
   friend std::ostream &operator<<(std::ostream &os, const Pokemon &pokemon);
 
-  std::array<Moves, NUM_MOVES> m_moves{Moves{}, Moves{}, Moves{}, Moves{}};
+  
   int m_currentExp{};
   int m_currentHP{};
   bool m_fainted = false;

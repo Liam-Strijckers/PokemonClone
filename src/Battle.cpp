@@ -1,9 +1,14 @@
 #include "Battle.h"
 
 void Battle::Attack(Pokemon &attackingPokemon, int moveIndex, Pokemon &defendingPokemon){
-    int damage = damageCalc (attackingPokemon, moveIndex, defendingPokemon);
-    defendingPokemon.DecrementCurrentHP(damage);
     //need to add way to decrement move PP from pokemon class, I think this is disconnected rn
+    if(attackingPokemon.moves.at(moveIndex).GetCurrentPP() > 0){
+        int damage = damageCalc (attackingPokemon, moveIndex, defendingPokemon);
+        defendingPokemon.DecrementCurrentHP(damage);
+        attackingPokemon.moves.at(moveIndex).DecrementCurrentPP();
+    }
+    //if it is zero 
+    
 }
 
 int Battle::damageCalc(const Pokemon &attackingPokemon, int moveIndex, const Pokemon &defendingPokemon){
@@ -22,4 +27,10 @@ int Battle::damageCalc(const Pokemon &attackingPokemon, int moveIndex, const Pok
 
 double Battle::typeEffectivenssLookUp(const enum MoveType &attackingType, const enum MoveType &defendingType){
     return TypeEffectivenessLookUp.at(attackingType).at(defendingType);
+}
+
+void Battle::swapAttackDefendPokemon(){
+    Pokemon *temp = AttackingPokemon;
+    AttackingPokemon = DefendingPokemon;
+    DefendingPokemon = temp;
 }

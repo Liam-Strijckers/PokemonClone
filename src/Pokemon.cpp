@@ -4,7 +4,7 @@ int Pokemon::GetCurrentExp() const { return m_currentExp; }
 int Pokemon::GetCurrentHP() const {return m_currentHP;}
 bool Pokemon::GetFaintedStatus() const {return m_fainted;}
 const std::array<Moves, NUM_MOVES> &Pokemon::GetMoves() const {
-  return m_moves;
+  return moves;
 }
 void Pokemon::IncrementCurrentExp(int expGain) { m_currentExp += expGain; }
 int Attack(){
@@ -21,12 +21,12 @@ void Pokemon::DecrementCurrentHP(int hpDecrement){
 
 bool Pokemon::LearnMove(const MovesData &moves_data) {
   for (int i = 0; i < NUM_MOVES; i++) {
-    if (m_moves.at(i) == Moves{}) {
-      m_moves.at(i) = Moves{moves_data};
+    if (moves.at(i) == Moves{}) {
+      moves.at(i) = Moves{moves_data};
       return true;
     }
 
-    if (moves_data.name == m_moves.at(i).data.name) {
+    if (moves_data.name == moves.at(i).data.name) {
       return false;
     }
   }

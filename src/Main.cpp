@@ -12,19 +12,19 @@ int main() {
   display(empty);
 
   const array<Moves, NUM_MOVES> CharizardMoves {
-    MovesData{"Flamethrower", "Fire", 90, 100, 0, 15},
-    MovesData{"Fire Spin", "Fire", 35, 85, 0, 15},
-    MovesData{"Slash", "Normal", 70, 100, 0, 20},
-    MovesData{"Rage", "Normal", 20, 100, 0, 20}
+    MovesData{"Flamethrower", Fire, 90, 100, 0, 15},
+    MovesData{"Fire Spin", Fire, 35, 85, 0, 15},
+    MovesData{"Slash", Normal, 70, 100, 0, 20},
+    MovesData{"Rage", Normal, 20, 100, 0, 20}
   };
   display(CharizardMoves);
 
 
 
 
-  PokemonData CharizardData{"Charizard", "Charizard", "Fire", "Flying", 78, 52, 84, 78, 109, 85, 100, 100, 1000};
+  PokemonData CharizardData{"Charizard", "Charizard", Fire, Flying, 78, 52, 84, 78, 109, 85, 100, 100, 1000};
   Pokemon Charizard {CharizardData};
-  MovesData Flamethrower {"Flamethrower", "Fire", 90, 100, 0, 15};
+  MovesData Flamethrower {"Flamethrower", Fire, 90, 100, 0, 15};
   Charizard.LearnMove(Flamethrower);
   display(Charizard.GetMoves());
   // Pokemon Charizard{
