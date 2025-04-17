@@ -18,6 +18,7 @@ public:
     Trainer(const TrainerData &trainerData): data{trainerData} {};
     bool AddPokemon(const PokemonData &PokemonData);
     bool SwapPrimPokemon(int indexNewPrim);
+    Pokemon& GetPrimaryPokemon() const;//refernce to a pokemon, might have issues with first const
     std::array<Pokemon,NUM_PARTY_POKEMON> party {Pokemon{},Pokemon{},Pokemon{},Pokemon{},Pokemon{},Pokemon{}};
     Pokemon *pointPrimPokemon = &party.at(0);
 

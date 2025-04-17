@@ -17,11 +17,11 @@ public:
 private:
     int damageCalc(const Pokemon &attackingPokemon, int moveIndex, const Pokemon &defendingPokemon);
     double typeEffectivenssLookUp(const enum MoveType &attackingType, const enum MoveType &defendingType);
-    void swapAttackDefendPokemon();
+    void swapAttackDefendPokemon();//need to change implemenmtation to use references
     void displayUserOptions();
     Trainer UserTrainer;
     Trainer CPUTrainer;
-    Pokemon *AttackingPokemon = UserTrainer.pointPrimPokemon;
-    Pokemon *DefendingPokemon = CPUTrainer.pointPrimPokemon
+    Pokemon &AttackingPokemon {UserTrainer.GetPrimaryPokemon()};
+    Pokemon &DefendingPokemon {CPUTrainer.GetPrimaryPokemon()};
 };
 #endif

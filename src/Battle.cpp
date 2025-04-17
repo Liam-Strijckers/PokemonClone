@@ -30,7 +30,9 @@ double Battle::typeEffectivenssLookUp(const enum MoveType &attackingType, const 
 }
 
 void Battle::swapAttackDefendPokemon(){
-    Pokemon *temp = AttackingPokemon;
+    //std::swap
+    //need to make a move constructor to swap the pokemon
+    Pokemon &temp = AttackingPokemon;
     AttackingPokemon = DefendingPokemon;
     DefendingPokemon = temp;
 }
