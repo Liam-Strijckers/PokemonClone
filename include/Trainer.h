@@ -8,13 +8,23 @@
 
 static constexpr int NUM_PARTY_POKEMON{6};
 
+struct TrainerData{
+    std::string name{};
+};
+
 class Trainer{
 public:
+    Trainer() = default;
+    Trainer(const TrainerData &trainerData): data{trainerData} {};
     bool AddPokemon(const PokemonData &PokemonData);
     bool SwapPrimPokemon(int indexNewPrim);
-    Pokemon *pointPrimPokemon = &m_party.at(0);
+    std::array<Pokemon,NUM_PARTY_POKEMON> party {Pokemon{},Pokemon{},Pokemon{},Pokemon{},Pokemon{},Pokemon{}};
+    Pokemon *pointPrimPokemon = &party.at(0);
+
+
+    const TrainerData data{};
 private:
-    std::array<Pokemon,NUM_PARTY_POKEMON> m_party {};
+    
     
 };
 

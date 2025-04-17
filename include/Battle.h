@@ -10,6 +10,9 @@
 
 class Battle{
 public:
+    Battle() = delete;
+    Battle(Trainer &UserTrainer, Trainer &CPUTrainer);
+
     void Attack(Pokemon &attackingPokemon, int moveIndex, Pokemon &defendingPokemon);
 private:
     int damageCalc(const Pokemon &attackingPokemon, int moveIndex, const Pokemon &defendingPokemon);
