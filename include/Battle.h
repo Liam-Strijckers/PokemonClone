@@ -4,6 +4,7 @@
 #include <string>
 
 #include "MoveInteraction.h"
+#include "Moves.h"
 #include "Pokemon.h"
 #include "Trainer.h"
 

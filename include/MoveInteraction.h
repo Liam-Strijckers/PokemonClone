@@ -6,6 +6,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <utility>
+#include <functional> // For std::hash
 
 
 static constexpr int NUM_TYPES{15};
@@ -26,10 +27,24 @@ enum class MoveType {
     Rock,
     Ghost,
     Dragon
-  };
+};
 
-std::array<std::array<double,NUM_TYPES>,NUM_TYPES> TypeEffectivenessLookUp;
-std::unordered_map<std::pair<MoveType,MoveType>, double> = {
+
+
+namespace std {
+    template <>
+    struct hash<std::pair<MoveType, MoveType>> {
+        size_t operator()(const std::pair<MoveType, MoveType>& pair) const {
+            // Combine the hashes of the two MoveType elements
+            size_t hash1 = std::hash<MoveType>{}(pair.first);
+            size_t hash2 = std::hash<MoveType>{}(pair.second);
+            return hash1 ^ (hash2 << 1); // XOR and shift to combine hashes
+        }
+    };
+}
+
+// std::array<std::array<double,NUM_TYPES>,NUM_TYPES> TypeEffectivenessLookUp;
+std::unordered_map<std::pair<MoveType,MoveType>, double> TypeEffectivenessLookUp {
     {{MoveType::Normal, MoveType::Rock}, 0.5},
     {{MoveType::Normal, MoveType::Ghost}, 0.0},
     {{MoveType::Fire, MoveType::Fire}, 0.5},

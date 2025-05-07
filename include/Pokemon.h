@@ -51,6 +51,7 @@ public:
   int Attack();
   
   const PokemonData data{};
+  std::array<Moves, NUM_MOVES> moves{Moves{}, Moves{}, Moves{}, Moves{}};
 
   bool operator==(const Pokemon &rhs) const;
 
@@ -58,7 +59,7 @@ public:
 private:
   friend std::ostream &operator<<(std::ostream &os, const Pokemon &pokemon);
 
-  std::array<Moves, NUM_MOVES> moves{Moves{}, Moves{}, Moves{}, Moves{}};
+  
 
   int m_currentExp{};
   int m_currentHP{};

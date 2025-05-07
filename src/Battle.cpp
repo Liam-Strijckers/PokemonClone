@@ -7,7 +7,7 @@ void Battle::Attack(Pokemon &attackingPokemon, int moveIndex, Pokemon &defending
         defendingPokemon.DecrementCurrentHP(damage);
         attackingPokemon.moves.at(moveIndex).DecrementCurrentPP();
     }
-    //if it is zero 
+    //if it is zero, try again
     
 }
 
@@ -26,7 +26,13 @@ int Battle::damageCalc(const Pokemon &attackingPokemon, int moveIndex, const Pok
 }
 
 double Battle::typeEffectivenssLookUp(const enum MoveType &attackingType, const enum MoveType &defendingType){
-    return TypeEffectivenessLookUp.at(attackingType).at(defendingType);
+    std::pair<MoveType,MoveType> typePair = {attackingType,defendingType};
+    auto it = TypeEffectivenessLookUp.find(typePair);
+    if(it != TypeEffectivenessLookUp.end()){
+        return TypeEffectivenessLookUp.at(typePair);
+    }else{//no element in hash, is 1
+        return 1.0; //default value
+    }
 }
 
 void Battle::swapAttackDefendPokemon(){
