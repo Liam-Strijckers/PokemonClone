@@ -127,7 +127,7 @@ std::unordered_map<std::pair<MoveType,MoveType>, double> TypeEffectivenessLookUp
     {{MoveType::Ghost, MoveType::Psychic}, 0.0},
     {{MoveType::Ghost, MoveType::Ghost}, 2.0},
     {{MoveType::Dragon, MoveType::Dragon}, 2.0}
-}
+};
 /*
 Below is the code for setting the Type Effectiveness Look Up Table
 according to this table https://img.pokemondb.net/images/typechart-gen1.png

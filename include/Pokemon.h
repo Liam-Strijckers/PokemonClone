@@ -50,7 +50,7 @@ public:
   bool LearnMove(const MovesData &moves_data);
   int Attack();
   
-  const PokemonData data{};
+  PokemonData data{};
   std::array<Moves, NUM_MOVES> moves{Moves{}, Moves{}, Moves{}, Moves{}};
 
   bool operator==(const Pokemon &rhs) const;

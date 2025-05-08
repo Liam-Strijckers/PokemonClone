@@ -1,4 +1,6 @@
 #include "Battle.h"
+#include <iostream>
+#include <algorithm>
 
 void Battle::Attack(Pokemon &attackingPokemon, int moveIndex, Pokemon &defendingPokemon){
     //need to add way to decrement move PP from pokemon class, I think this is disconnected rn
@@ -37,6 +39,7 @@ double Battle::typeEffectivenssLookUp(const enum MoveType &attackingType, const 
 
 void Battle::swapAttackDefendPokemon(){
     //std::swap
+    // std::swap(AttackingPokemon, DefendingPokemon);
     //need to make a move constructor to swap the pokemon
     Pokemon &temp = AttackingPokemon;
     AttackingPokemon = DefendingPokemon;

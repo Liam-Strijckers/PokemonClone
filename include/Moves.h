@@ -10,7 +10,7 @@ static constexpr int NUM_MOVES{4};
 
 struct MovesData {
   std::string name{};
-  enum MoveType type{};
+  MoveType type{};
   int power{};
   int accuracy{};
   int critcalChance{};
